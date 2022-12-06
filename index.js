@@ -3,7 +3,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateHTML = require("./generateHTML").default;
+const generateHTML = require("./generateHTML");
 
 //TODO - write your inquirer app here to gather information about the team members, and generate the HTML file using fs
 const employees = [];
@@ -74,8 +74,8 @@ function newEmployee() {
                 message: "What is thier github username?",
               },
             ])
-            .then(({ github }) => {
-              employees.push(new Engineer(name, email, id, github));
+            .then(({ gitHub }) => {
+              employees.push(new Engineer(name, email, id, gitHub));
               addAnother();
             });
           break;
@@ -106,6 +106,7 @@ newEmployee();
 
 // const html = generateHTML(employees);
 function renderHTML() {
+  console.log(employees);
   fs.writeFileSync("./index.HTML", generateHTML(employees));
   //   ,(err) =>{
   //         if(err){

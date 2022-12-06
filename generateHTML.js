@@ -1,4 +1,5 @@
-// const generateHTML = employees =>{}
+// const generateHTML = employees =>
+
 const managerCard = (manager) => {
   return `
     <div class='card'>
@@ -30,13 +31,14 @@ const internCard = (intern) => {
     <h3 class='card-title'>${intern.name}</h3>
     </div>
     <div class='card-body'>
-    <p class='card-text'>${intern.gitHub}</p>
+    <p class='card-text'>${intern.school}</p> //corr
     </div>
     </div>
     `;
 };
 function generateHTML(data) {
-  const html = `
+  return ` 
+  
     <html lang="en">
     <!DOCTYPE html>
     <head>
@@ -59,14 +61,14 @@ function generateHTML(data) {
         <div class='row'>
          <div class='col-12'>
          ${data
-           .map((employee) => {
-             switch (employee.getRole()) {
+           .map((employees) => {
+             switch (employees.getRole()) {
                case "Manager":
-                 return managerCard(employee);
+                 return managerCard(employees);
                case "Engineer":
-                 return engineerCard(employee);
+                 return engineerCard(employees);
                case "Intern":
-                 return internCard(employee);
+                 return internCard(employees);
              }
            })
            .join("")}
