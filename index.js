@@ -3,6 +3,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateHTML = require("./generateHTML").default;
 
 //TODO - write your inquirer app here to gather information about the team members, and generate the HTML file using fs
 const employees = [];
@@ -94,8 +95,8 @@ function addAnother() {
     ])
     .then(({ addMore }) => {
       if (addMore) newEmployee();
-      // else console.log(employees)
       else {
+        console.log(employees);
         renderHTML();
       }
     });
@@ -103,24 +104,36 @@ function addAnother() {
 
 newEmployee();
 
+// const html = generateHTML(employees);
 function renderHTML() {
-  fs.writeFileSync(
-    "./index.HTML", //HTML
-    `
-     <ul>
-     ${employees.map((employee) => `
-     <li>${employee.getName()}</li>
-     <li>${employee.getId()}</li>
-     <li>${employee.getEmail()}</li>    
-     <li>${employee.getRole()}</li>
-     
-     `)}
-     
-     </ul>
-
-    `
-  )
+  fs.writeFileSync("./index.HTML", generateHTML(employees));
+  //   ,(err) =>{
+  //         if(err){
+  //             console.log(err);
+  //         }
 }
-// ${employees.map((employee) => `<li> ${employee.getEmail()}</li>`)}
-// ${employees.map((employee) => `<li>${employee.getID()}</li>,`)}
-// ${employees.map((employee) => `<li>${employee.getRole()}</li>,`)}
+// )
+// /*html*/
+
+// `
+// <body>
+// <header class="jumborton">
+//     <h1 class="bg-danger">My Team</h1>
+
+//  <ul>
+//  ${employees.map((employee) => `
+//  <li>${employee.getName()}</li>
+//  <li>${employee.getId()}</li>
+//  <li>${employee.getEmail()}</li>
+//  <li>${employee.getRole()}</li>
+
+//  `)}
+
+//  </ul>
+
+// `
+//   )
+// }
+// function managerCard(manager){
+
+// }
