@@ -108,6 +108,7 @@ newEmployee();
 function renderHTML() {
   console.log(employees);
   fs.writeFileSync("./index.HTML", generateHTML(employees));
+  
   //   ,(err) =>{
   //         if(err){
   //             console.log(err);
@@ -126,9 +127,9 @@ function renderHTML() {
 //  <li>${employee.getName()}</li>
 //  <li>${employee.getId()}</li>
 //  <li>${employee.getEmail()}</li>
-//  <li>${employee.getRole()}</li>
+// //  <li>${employee.getRole()}</li>
 
-//  `)}
+// //  `)}
 
 //  </ul>
 
