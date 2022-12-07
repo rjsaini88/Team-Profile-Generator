@@ -7,7 +7,7 @@
 
 const managerCard = (manager) => {
   return `
-    <div class="card">
+    <div class="card col-3">
     <div class="card-header bg-primary text-white">
     <h3 class="card-title">${manager.name}</h3>
     <i class="fa-solid fa-beer-mug-empty"> </i> ${manager.role}
@@ -22,7 +22,7 @@ const managerCard = (manager) => {
 };
 const engineerCard = (engineer) => {
   return `
-    <div class="card">
+    <div class="card col-3">
     <div class="card-header bg-primary text-white">
     <h3 class="card-title">${engineer.name}</h3>
     <i class="fa-solid fa-glasses"> </i> ${engineer.role}
@@ -37,7 +37,7 @@ const engineerCard = (engineer) => {
 };
 const internCard = (intern) => {
   return `
-    <div class="card">
+    <div class="card col-3">
     <div class="card-header bg-primary text-white">
     <h3 class="card-title">${intern.name}</h3>
     <i class="fa-solid fa-graduation-cap"> </i> ${intern.role}
@@ -70,14 +70,11 @@ function generateHTML(data) {
         <title>Team Profile Generator</title>
       </head>
       <body>
-      <header class=" jumbotron bg-danger mb-10">
-      <div class="display-6 text-white text-center align-text-middle">My Team 
-      </div>
+      <header class="jumbotron bg-danger mb-10 d-flex justify-content-center align-items-center text-white"> <h3>My Team</h3>
     </header>
 
       <div class="container">
-        <div class="row">
-         <div class="col-12 justify-content-center mainCards">
+      <div class="row justify-content-center">
          ${data
            .map((employees) => {
              switch (employees.getRole()) {
@@ -90,7 +87,7 @@ function generateHTML(data) {
              }
            })
            .join("")}
-    </div>
+    
     </div>
     </div>
     </body>
@@ -99,3 +96,30 @@ function generateHTML(data) {
 }
 
 module.exports = generateHTML;
+
+/* <body>
+<header
+  class="jumbotron bg-danger mb-10 d-flex justify-content-center align-items-center text-white"
+>
+  <h3>My Team</h3>
+
+</header>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card col-3">
+      <div class="card-header bg-primary text-white">
+        <h3 class="card-title">Rj</h3>
+        <i class="fa-solid fa-glasses"> </i> Engineer
+      </div>
+      <div class="card-body bg-light">
+        <p class="card-text">Id: adfasdfas</p>
+        <p class="card-text">
+          Email:<a href="mailto: dsfasdfasdf">dsfasdfasdf</a>
+        </p>
+        <p class="card-text">
+          Github:
+          <a href="https:github.com/adfasdf" target="_blank">adfasdf</a>
+        </p>
+      </div>
+    </div> */
