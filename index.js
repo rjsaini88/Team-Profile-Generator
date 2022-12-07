@@ -18,13 +18,13 @@ function newEmployee() {
       },
       {
         type: "input",
-        name: "email",
-        message: "What is the email of the employee?",
+        name: "id",
+        message: "What is the id of the employee?",
       },
       {
         type: "input",
-        name: "id",
-        message: "What is the id of the employee?",
+        name: "email",
+        message: "What is the email of the employee?",
       },
       {
         type: "list",
@@ -33,7 +33,7 @@ function newEmployee() {
         choices: ["Engineer", "Intern", "Manager"],
       },
     ])
-    .then(({ name, email, id, position }) => {
+    .then(({ name, id, email, position }) => {
       switch (position) {
         case "Manager":
           inquirer
@@ -45,7 +45,7 @@ function newEmployee() {
               },
             ])
             .then(({ officeNumber }) => {
-              employees.push(new Manager(name, email, id, officeNumber));
+              employees.push(new Manager(name, id, email, officeNumber));
               addAnother();
             });
           break;
@@ -60,7 +60,7 @@ function newEmployee() {
               },
             ])
             .then(({ schoolName }) => {
-              employees.push(new Intern(name, email, id, schoolName));
+              employees.push(new Intern(name, id, email, schoolName));
               addAnother();
             });
           break;
@@ -75,7 +75,7 @@ function newEmployee() {
               },
             ])
             .then(({ gitHub }) => {
-              employees.push(new Engineer(name, email, id, gitHub));
+              employees.push(new Engineer(name, id, email, gitHub));
               addAnother();
             });
           break;
