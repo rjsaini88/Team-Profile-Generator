@@ -114,28 +114,3 @@ function renderHTML() {
   //             console.log(err);
   //         }
 }
-// )
-// /*html*/
-
-// `
-// <body>
-// <header class="jumborton">
-//     <h1 class="bg-danger">My Team</h1>
-
-//  <ul>
-//  ${employees.map((employee) => `
-//  <li>${employee.getName()}</li>
-//  <li>${employee.getId()}</li>
-//  <li>${employee.getEmail()}</li>
-// //  <li>${employee.getRole()}</li>
-
-// //  `)}
-
-//  </ul>
-
-// `
-//   )
-// }
-// function managerCard(manager){
-
-// }
